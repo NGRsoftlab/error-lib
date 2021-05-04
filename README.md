@@ -6,3 +6,11 @@ import (
   errorLib "github.com/NGRsoftlab/error-lib"
 )
 ```
+
+or (if you want ^^)
+
+```
+import (
+  errorCustom "github.com/NGRsoftlab/error-lib"
+)
+```
