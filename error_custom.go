@@ -80,6 +80,7 @@ var GlobalErrors = ErrMap{
 	errorBeingDeployed:     errors.New("code: 400, message: configs are being deployed now"),
 	errorConnection:        errors.New("code: 400, message: bad connection"),
 	errorBadSshCommands:    errors.New("code: 400, message: bad ssh commands"),
+	errorUnsupported:       errors.New("code: 400, message: unsupported"),
 
 	//scripts
 	errorJobAlreadyStarted: errors.New("code: 400, message: job already started"),
@@ -163,6 +164,7 @@ type ErrMap struct {
 	errorBeingDeployed     error `json:"err_being_deployed"`
 	errorConnection        error `json:"err_connection"`
 	errorBadSshCommands    error `json:"err_ssh_commands"`
+	errorUnsupported       error `json:"err_unsupported"`
 
 	//scripts
 	errorJobAlreadyStarted error `json:"err_job_already_started"`
@@ -393,6 +395,10 @@ func (globErrs *ErrMap) ErrConnection() error {
 
 func (globErrs *ErrMap) ErrSshCommands() error {
 	return globErrs.errorBadSshCommands
+}
+
+func (globErrs *ErrMap) ErrUnsupported() error {
+	return globErrs.errorUnsupported
 }
 
 //scripts
