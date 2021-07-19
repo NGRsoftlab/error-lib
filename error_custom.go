@@ -11,6 +11,7 @@ var GlobalErrors = ErrMap{
 
 	//rights
 	errorForbidden: errors.New("code: 403, message: forbidden"),
+	licenseExpired: errors.New("code: 400, message: license has expired"),
 
 	//auth
 	errorUnauthorized:  errors.New("code: 401, message: unauthorized"),
@@ -94,6 +95,7 @@ type ErrMap struct {
 
 	//rights
 	errorForbidden error `json:"err_forbidden"`
+	licenseExpired error `json:"license_expired"`
 
 	//auth
 	errorUnauthorized  error `json:"err_unauthorized"`
@@ -187,6 +189,11 @@ func (globErrs *ErrMap) ErrFailedMakeReportFile() error {
 //rights (403)
 func (globErrs *ErrMap) ErrForbidden() error {
 	return globErrs.errorForbidden
+}
+
+// (400)
+func (globErrs *ErrMap) ErrLicenseExpired() error {
+	return globErrs.licenseExpired
 }
 
 //auth (401)
