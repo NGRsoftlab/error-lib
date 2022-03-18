@@ -252,6 +252,10 @@ func (globErrs *ErrMap) ErrDbTx() error {
 }
 
 //elements
+func (globErrs *ErrMap) ErrDuplicateFound() error {
+	return globErrs.errorDuplicateFound
+}
+
 func (globErrs *ErrMap) ErrDuplicateName() error {
 	return globErrs.errorDuplicateName
 }
