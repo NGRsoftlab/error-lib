@@ -32,6 +32,7 @@ var GlobalErrors = ErrMap{
 	errorBadDatabaseTransaction: errors.New("code: 400, message: bad database transaction"),
 
 	//elements
+	errorDuplicateFound:   errors.New("code: 400, message: duplicated element found"),
 	errorDuplicateName:    errors.New("code: 400, message: duplicate element name"),
 	errorElementNotFound:  errors.New("code: 400, message: element not found"),
 	errorNotElementAuthor: errors.New("code: 400, message: only author can change element flags"),
@@ -117,6 +118,7 @@ type ErrMap struct {
 	errorBadDatabaseTransaction error `json:"err_bad_db_tx"`
 
 	//elements
+	errorDuplicateFound   error `json:"err_duplicate_element_found"`
 	errorDuplicateName    error `json:"err_duplicate_name"`
 	errorElementNotFound  error `json:"err_element_not_found"`
 	errorNotElementAuthor error `json:"err_not_element_author"`
@@ -250,6 +252,10 @@ func (globErrs *ErrMap) ErrDbTx() error {
 }
 
 //elements
+func (globErrs *ErrMap) ErrDuplicateFound() error {
+	return globErrs.errorDuplicateFound
+}
+
 func (globErrs *ErrMap) ErrDuplicateName() error {
 	return globErrs.errorDuplicateName
 }
