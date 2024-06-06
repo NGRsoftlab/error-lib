@@ -1,5 +1,6 @@
 # error-lib
 ARCHIVED REPO
+
 Lib with some standatd errors
 
 ```
